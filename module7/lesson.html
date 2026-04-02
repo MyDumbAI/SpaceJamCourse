@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 7: Image Maps</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+
+<h1>Module 7: Image Maps</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Build the Jam Central section hub page. The navigation is a single image with four clickable regions mapped to different links &mdash; an image map.
+</div>
+
+<h2>What is an Image Map?</h2>
+<p>An image map lets you define multiple clickable regions within a single image, each linking to a different destination. Instead of using separate button images, you draw invisible hotspot shapes on top of one image.</p>
+<p>The Jam Central hub page uses one large image (<code>m-central.jpg</code>) with four rectangular hotspots mapped to Production Notes, Photos, Filmmakers, and the Theatrical Trailer.</p>
+
+<h2>The map and area Tags</h2>
+<p>An image map requires two things: a <code>&lt;map&gt;</code> element that defines the clickable areas, and a <code>usemap</code> attribute on the <code>&lt;img&gt;</code> that connects the image to the map.</p>
+<p>The <code>&lt;map&gt;</code> tag takes a <code>name</code> attribute. Each clickable region inside it is an <code>&lt;area&gt;</code> tag with:</p>
+<ul>
+  <li><code>shape</code> &mdash; the shape of the hotspot: <code>rect</code> (rectangle), <code>circle</code>, or <code>poly</code> (polygon)</li>
+  <li><code>coords</code> &mdash; the pixel coordinates defining the shape</li>
+  <li><code>href</code> &mdash; where to go when that area is clicked</li>
+  <li><code>target</code> &mdash; same as on an <code>&lt;a&gt;</code> tag</li>
+</ul>
+
+<h2>Coordinates</h2>
+<p>For a <strong>rectangle</strong>, coords are: <code>left, top, right, bottom</code> &mdash; the x and y of the top-left corner, then the x and y of the bottom-right corner. All values are in pixels measured from the top-left of the image.</p>
+<pre>&lt;area shape="rect" coords="33,92,178,136" href="prodnotes.html"&gt;</pre>
+<p>For a <strong>circle</strong>, coords are: <code>center-x, center-y, radius</code>.</p>
+<p>For a <strong>polygon</strong>, coords are a sequence of x,y pairs for each vertex.</p>
+<div class="note">To find the correct coordinates, open the image in any image editor and hover over the corners of each region you want to make clickable. Most editors show the current pixel position in the status bar.</div>
+
+<h2>Connecting Image to Map</h2>
+<p>The <code>usemap</code> attribute on the <code>&lt;img&gt;</code> tag links the image to its map by name, prefixed with a hash:</p>
+<pre>&lt;img src="assets/m-central.jpg" width=438 height=301 usemap="#map" border=0&gt;
+
+&lt;map name="map"&gt;
+  &lt;area shape="rect" coords="33,92,178,136" href="prodnotes.html" target="_top"&gt;
+  &lt;area shape="rect" coords="244,111,416,152" href="photos.html" target="_top"&gt;
+  &lt;area shape="rect" coords="104,138,229,181" href="filmmakers.html" target="_top"&gt;
+  &lt;area shape="rect" coords="230,155,334,197" href="trailer.html" target="_top"&gt;
+&lt;/map&gt;</pre>
+
+<hr>
+<h2>Assets</h2>
+<ul>
+  <li><code>m-central.jpg</code> &mdash; the Jam Central navigation image (438&times;301)</li>
+  <li><code>bg_stars.gif</code> &mdash; star field background tile</li>
+</ul>
+
+<hr>
+<h2>Steps</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Create jamcentral.html</h3>
+  <p>Create a new file. Set the title to "Jam Central" and apply the Space Jam color scheme to the body: <code>bgcolor="#000000"</code>, <code>background="assets/bg_stars.gif"</code>, <code>text="#ff0000"</code>, <code>link="#ff4c4c"</code>, <code>vlink="#ff4c4c"</code>, <code>alink="#ff4c4c"</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Add the image with usemap</h3>
+  <p>Inside the body, add a <code>&lt;br&gt;</code>, then open a <code>&lt;blockquote&gt;</code> and a <code>&lt;center&gt;</code>. Place the <code>m-central.jpg</code> image with <code>usemap="#map"</code> and <code>border=0</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 3 &mdash; Define the map</h3>
+  <p>Immediately after the <code>&lt;img&gt;</code> tag (still inside the center/blockquote), add the <code>&lt;map&gt;</code> element with four <code>&lt;area&gt;</code> tags using the coordinates and links above. Each area uses <code>target="_top"</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 4 &mdash; Add the description text and footer</h3>
+  <p>After the map, close <code>&lt;/center&gt;</code> and add the introductory paragraph using <code>&lt;font size="+2"&gt;</code>:</p>
+  <blockquote>You've made it: Jam Central Station, the central depository for all things Space Jam. From the best seats in the house, you can peruse the production notes, find out about the filmmakers, check out the theatrical trailer, and look at a bunch of photos from the film.</blockquote>
+  <p>Close the blockquote, then add a centered copyright footer.</p>
+</div>
+
+<div class="step">
+  <h3>Step 5 &mdash; Test the image map</h3>
+  <p>Open the page in a browser. Hover over the image &mdash; you should see the cursor change to a pointer over the four hotspot areas. The labels in the image correspond to the four mapped regions: Production Notes, Photos, Filmmakers, and Trailer.</p>
+  <div class="note">The linked pages (prodnotesframes.html, photosframes.html, etc.) do not exist yet. The links are correct &mdash; the pages will be built in later modules.</div>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Your finished file should match <code>completed/jamcentral.html</code>. Image maps are used on every major section hub in the Space Jam site. In Module 8 this page becomes the content frame in a frameset.</p>
+
+</body>
+</html>

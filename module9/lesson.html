@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 9: Embedding Media</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+
+<h1>Module 9: Embedding Media</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Build two media pages from the Space Jam site: the Planet B-Ball QTVR viewer page, which uses the <code>&lt;embed&gt;</code> tag to play an inline QuickTime VR file, and a Looney Tunes voice clip download page, which links to audio files for the user to save.
+</div>
+
+<h2>The embed Tag</h2>
+<p>The <code>&lt;embed&gt;</code> tag inserts a media file directly into the page, played by whatever browser plugin supports that format. In 1996, this was primarily used for QuickTime movies, QuickTime VR panoramas, and Macromedia Director/Shockwave content.</p>
+<pre>&lt;embed src="assets/centercourt.qt" width=320 height=200 autoplay=true&gt;</pre>
+<p>Key attributes:</p>
+<ul>
+  <li><code>src</code> &mdash; path to the media file</li>
+  <li><code>width</code> and <code>height</code> &mdash; dimensions of the embedded player in pixels</li>
+  <li><code>autoplay</code> &mdash; set to <code>true</code> to start playing immediately on load</li>
+</ul>
+<div class="note">QuickTime VR files require the QuickTime browser plugin, which no modern browser supports. The embed tag will render an empty placeholder in current browsers. This is expected &mdash; the markup is correct, the technology is obsolete.</div>
+
+<h2>Linking to Downloadable Files</h2>
+<p>Linking to a media file works exactly like linking to an HTML page &mdash; use the <code>&lt;a href&gt;</code> tag with the file's path as the destination. When the browser receives a file type it cannot display inline, it prompts the user to download it.</p>
+<pre>&lt;a href="assets/growl.wav"&gt;growl.wav (12k)&lt;/a&gt;</pre>
+<p>In 1996, it was common practice to offer the same audio clip in multiple formats for different operating systems: AIF for Mac users, WAV for Windows users. The same link pattern applied to both &mdash; just different file paths.</p>
+<pre>&lt;a href="assets/growl.aif"&gt;AIF&lt;/a&gt; | &lt;a href="assets/growl.wav"&gt;WAV&lt;/a&gt;</pre>
+
+<h2>Lists for Download Pages</h2>
+<p>Download pages in the Space Jam site use an unordered list where each item is a clip name followed by inline links for each available format. The <code>&lt;li&gt;</code> tag marks each entry, and the format links sit inline after the title.</p>
+
+<h2>The hr Tag</h2>
+<p>The <code>&lt;hr&gt;</code> tag draws a horizontal rule &mdash; a dividing line across the page. It takes no closing tag. Attributes include <code>width</code> (as pixels or percentage) and <code>noshade</code> (renders as a flat line instead of an embossed one).</p>
+<pre>&lt;hr width="50%" noshade&gt;</pre>
+
+<hr>
+<h2>Assets</h2>
+<p>The <code>assets/</code> folder contains:</p>
+<p><strong>For the QTVR viewer page:</strong></p>
+<ul>
+  <li><code>bg-bball.gif</code> &mdash; Planet B-Ball background tile</li>
+  <li><code>b-jordandome.gif</code> &mdash; "The JordanDome" title graphic (299&times;93)</li>
+  <li><code>centerqtvr.gif</code>, <code>gymqtvr.gif</code>, <code>basketqtvr.gif</code>, <code>aerialqtvr.gif</code> &mdash; QTVR thumbnail images (144&times;88 or 144&times;90)</li>
+  <li><code>qtvr.gif</code> &mdash; back-to-QTVR navigation button</li>
+  <li><code>next.gif</code> &mdash; next navigation button</li>
+</ul>
+<p><strong>For the audio download page:</strong></p>
+<ul>
+  <li><code>growl.wav</code> / <code>growl.aif</code></li>
+  <li><code>nuts.wav</code> / <code>nuts.aif</code></li>
+  <li><code>care.wav</code> / <code>care.aif</code></li>
+  <li><code>smile.wav</code> / <code>smile.aif</code></li>
+  <li><code>yeah.aif</code> / <code>updoc.wav</code> / <code>updoc.aif</code></li>
+</ul>
+
+<hr>
+<h2>Steps: Part A &mdash; The QTVR Viewer</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Create centercourt.html</h3>
+  <p>Create a new file. Title it "Planet B-Ball". Set the body color scheme: <code>bgcolor="#18ad11"</code>, <code>background="assets/bg-bball.gif"</code>, <code>text="#030762"</code>, <code>link="#050cb2"</code>, <code>vlink="#050cb2"</code>, <code>alink="#050cb2"</code>. Notice this section uses a completely different palette from the rest of the site.</p>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Add the JordanDome header and embed</h3>
+  <p>Inside the body, add a centered <code>b-jordandome.gif</code> image. Below it, in a blockquote, add a brief intro sentence in <code>&lt;font size="+1"&gt;</code>, then a centered <code>&lt;embed&gt;</code> tag pointing to the QuickTime VR file: <code>src="assets/centercourt.qt"</code> (note: this file is not in assets &mdash; it is large), <code>width=320</code>, <code>height=200</code>, <code>autoplay=true</code>.</p>
+  <div class="note">The .qt file is not included in the assets folder due to its size. The embed tag will show a placeholder. That is correct.</div>
+</div>
+
+<div class="step">
+  <h3>Step 3 &mdash; Add usage instructions and download links</h3>
+  <p>Below the embed, add instructions for how to use the QTVR (mouse to look around, control to zoom out, shift/option to zoom in). Then add a sentence explaining that users without the plugin can download the file, with links to the <code>.sea.hqx</code> (Mac) and <code>.zip</code> (Windows) versions in the fullsite's dld/qtvr/ folder.</p>
+</div>
+
+<div class="step">
+  <h3>Step 4 &mdash; Add the navigation footer</h3>
+  <p>Close the blockquote and add a centered footer using the same pattern as Module 4: <code>qtvr.gif</code> linking back to <code>qtvr.html</code>, the copyright notice, and <code>next.gif</code> linking to <code>gym.html</code>.</p>
+</div>
+
+<hr>
+<h2>Steps: Part B &mdash; The Audio Download Page</h2>
+
+<div class="step">
+  <h3>Step 5 &mdash; Create sounds.html</h3>
+  <p>Create a new file. Title it "Space Jam - Sounds". Set the body: <code>bgcolor="#000000"</code>, <code>text="#ff0000"</code>, <code>link="#ff4c4c"</code>, <code>vlink="#ff4c4c"</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 6 &mdash; Add the heading and hr</h3>
+  <p>Add a centered heading "Looney Tunes Voice Clips" followed by an <code>&lt;hr&gt;</code> with <code>width="75%"</code> and <code>noshade</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 7 &mdash; Add the download list</h3>
+  <p>Create an unordered list. Each <code>&lt;li&gt;</code> should contain the character name, a description of the clip in quotes, and two inline links: one for AIF and one for WAV. Use the six clips in the assets folder. For example:</p>
+  <blockquote>Bugs Bunny &mdash; "Yeah!" &mdash; [AIF] [WAV]</blockquote>
+  <p>Where [AIF] and [WAV] are anchor tags pointing to the respective files in <code>assets/</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 8 &mdash; Add a closing hr and footer</h3>
+  <p>Add a second <code>&lt;hr width="50%" noshade&gt;</code> and a copyright footer.</p>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Your finished files should match <code>completed/centercourt.html</code> and <code>completed/sounds.html</code>. These two pages demonstrate the two ways the Space Jam site delivers media: embedded inline (QTVR) and as downloadable files (audio clips).</p>
+
+</body>
+</html>

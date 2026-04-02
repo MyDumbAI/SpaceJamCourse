@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 5: Images</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+
+<h1>Module 5: Images</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Add all eleven section-button images to the Space Jam home page. Along the way, learn the full set of <code>&lt;img&gt;</code> attributes, the difference between GIF and JPG formats, and how to organize image assets in folders.
+</div>
+
+<h2>img Attributes in Full</h2>
+<p>You have used <code>&lt;img&gt;</code> since Module 2. Here are all the attributes it supports, as used throughout the Space Jam site:</p>
+<ul>
+  <li><code>src</code> &mdash; path to the image file. Required.</li>
+  <li><code>alt</code> &mdash; text description of the image. Required for accessibility.</li>
+  <li><code>width</code> and <code>height</code> &mdash; dimensions in pixels. Always include these &mdash; they prevent layout reflow as images load.</li>
+  <li><code>border</code> &mdash; thickness of the border drawn around the image. Almost always set to <code>0</code>.</li>
+  <li><code>align</code> &mdash; controls how the image interacts with surrounding content. <code>left</code> and <code>right</code> float the image to that side and let text wrap around it. <code>absmiddle</code> vertically aligns an inline image to the middle of adjacent text.</li>
+  <li><code>hspace</code> &mdash; adds horizontal space (in pixels) to both the left and right of the image.</li>
+  <li><code>vspace</code> &mdash; adds vertical space above and below.</li>
+</ul>
+
+<h2>GIF vs. JPG</h2>
+<p>The Space Jam site uses two image formats. Understanding when to use each is part of working with images.</p>
+<p><strong>GIF</strong> (Graphics Interchange Format) is best for images with flat areas of solid color, logos, icons, and line art. GIFs support transparency and simple animation. Most of the navigation buttons and title graphics in the Space Jam site are GIFs.</p>
+<p><strong>JPG</strong> (Joint Photographic Experts Group) is best for photographs and images with gradients or complex color gradations. JPG compresses photographic content much more efficiently than GIF. The character photos (like <code>c-bugs.jpg</code>) are JPGs.</p>
+
+<h2>Organizing Assets in Folders</h2>
+<p>The Space Jam site stores its root-level images in an <code>img/</code> folder next to the home page. Section-specific images live in an <code>img/</code> folder inside each section's folder. In this module, all images are in the <code>assets/</code> folder &mdash; the path in your <code>src</code> attribute just needs to match where the file actually is.</p>
+<pre>&lt;img src="assets/p-jamlogo.gif" width=272 height=165 alt="Space Jam" border=0&gt;</pre>
+
+<hr>
+<h2>Assets</h2>
+<p>The <code>assets/</code> folder contains the background, the logo, and all eleven section buttons:</p>
+<ul>
+  <li><code>bg_stars.gif</code> &mdash; star field background tile</li>
+  <li><code>p-jamlogo.gif</code> &mdash; Space Jam logo (272&times;165)</li>
+  <li><code>p-pressbox.gif</code> &mdash; Press Box button (131&times;56)</li>
+  <li><code>p-jamcentral.gif</code> &mdash; Jam Central button (55&times;67)</li>
+  <li><code>p-bball.gif</code> &mdash; Planet B-Ball button (62&times;62)</li>
+  <li><code>p-lunartunes.gif</code> &mdash; Lunar Tunes button (95&times;77)</li>
+  <li><code>p-lineup.gif</code> &mdash; The Lineup button (63&times;52)</li>
+  <li><code>p-jump.gif</code> &mdash; Jump Station button (58&times;52)</li>
+  <li><code>p-junior.gif</code> &mdash; Junior Jam button (49&times;57)</li>
+  <li><code>p-studiostore.gif</code> &mdash; Studio Store button (94&times;72)</li>
+  <li><code>p-souvenirs.gif</code> &mdash; Stellar Souvenirs button (83&times;83)</li>
+  <li><code>p-sitemap.gif</code> &mdash; Site Map button (104&times;67)</li>
+  <li><code>p-behind.gif</code> &mdash; Behind the Jam button (67&times;63)</li>
+</ul>
+
+<hr>
+<h2>Steps</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Start from the Module 3 home page</h3>
+  <p>Create a new <code>index.html</code> starting from your Module 3 completed file. It should already have the black starfield body, the centered logo, and the copyright footer.</p>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Add the section buttons</h3>
+  <p>Between the logo and the copyright footer, add all eleven section button images inside a <code>&lt;center&gt;</code> tag. Use each image's correct width and height as listed in the assets table above. Give each one <code>border=0</code> and a descriptive <code>alt</code> attribute.</p>
+  <p>The buttons and their sizes, in order:</p>
+  <ul>
+    <li><code>p-pressbox.gif</code> &mdash; 131&times;56, alt "Press Box"</li>
+    <li><code>p-jamcentral.gif</code> &mdash; 55&times;67, alt "Jam Central"</li>
+    <li><code>p-bball.gif</code> &mdash; 62&times;62, alt "Planet B-Ball"</li>
+    <li><code>p-lunartunes.gif</code> &mdash; 95&times;77, alt "Lunar Tunes"</li>
+    <li><code>p-lineup.gif</code> &mdash; 63&times;52, alt "The Lineup"</li>
+    <li><code>p-jump.gif</code> &mdash; 58&times;52, alt "Jump Station"</li>
+    <li><code>p-junior.gif</code> &mdash; 49&times;57, alt "Junior Jam"</li>
+    <li><code>p-studiostore.gif</code> &mdash; 94&times;72, alt "Studio Store"</li>
+    <li><code>p-souvenirs.gif</code> &mdash; 83&times;83, alt "Stellar Souvenirs"</li>
+    <li><code>p-sitemap.gif</code> &mdash; 104&times;67, alt "Site Map"</li>
+    <li><code>p-behind.gif</code> &mdash; 67&times;63, alt "Behind the Jam"</li>
+  </ul>
+  <p>Save and open in your browser. The buttons will appear in a row, wrapping as the window narrows. They are not positioned correctly yet &mdash; that is Module 6.</p>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Your finished file should match <code>completed/index.html</code>. All the images are present and loading. In Module 6 we will use a table to position them in the orbital arrangement from the real site.</p>
+
+</body>
+</html>

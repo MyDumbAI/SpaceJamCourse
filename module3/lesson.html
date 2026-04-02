@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 3: Colors &amp; Backgrounds</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+    .swatch { display: inline-block; width: 20px; height: 20px; vertical-align: middle; border: 1px solid #999; margin-right: 6px; }
+  </style>
+</head>
+<body>
+
+<h1>Module 3: Colors &amp; Backgrounds</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Apply the Space Jam color scheme to the home page skeleton from Module 1 &mdash; a black background tiled with a star field GIF, red body text, and a centered Space Jam logo image.
+</div>
+
+<h2>Color on the body Tag</h2>
+<p>In 1996-era HTML, colors for the whole page are set as attributes on the <code>&lt;body&gt;</code> tag. There is no CSS involved &mdash; these attributes control everything at once.</p>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+  <tr style="background:#eee;">
+    <th align="left">Attribute</th>
+    <th align="left">What it controls</th>
+  </tr>
+  <tr>
+    <td><code>bgcolor</code></td>
+    <td>Background color of the page</td>
+  </tr>
+  <tr>
+    <td><code>background</code></td>
+    <td>An image file that tiles across the background</td>
+  </tr>
+  <tr>
+    <td><code>text</code></td>
+    <td>Color of all body text</td>
+  </tr>
+  <tr>
+    <td><code>link</code></td>
+    <td>Color of unvisited links</td>
+  </tr>
+  <tr>
+    <td><code>vlink</code></td>
+    <td>Color of visited links</td>
+  </tr>
+  <tr>
+    <td><code>alink</code></td>
+    <td>Color of a link while being clicked</td>
+  </tr>
+</table>
+
+<h2>Hex Color Codes</h2>
+<p>Colors are written as a <code>#</code> followed by six hexadecimal digits representing red, green, and blue values (<code>#RRGGBB</code>). Some examples from the Space Jam site:</p>
+<ul>
+  <li><span class="swatch" style="background:#000000;"></span><code>#000000</code> &mdash; black (the page background)</li>
+  <li><span class="swatch" style="background:#ff0000;"></span><code>#ff0000</code> &mdash; red (body text on the home page)</li>
+  <li><span class="swatch" style="background:#ff4c4c;"></span><code>#ff4c4c</code> &mdash; a softer red (used for links)</li>
+  <li><span class="swatch" style="background:#feff89; border:1px solid #999;"></span><code>#feff89</code> &mdash; yellow (used on the Bugs bio page)</li>
+  <li><span class="swatch" style="background:#ffffff; border:1px solid #999;"></span><code>#ffffff</code> &mdash; white</li>
+</ul>
+
+<h2>Background Images</h2>
+<p>When you provide a <code>background</code> image, the browser tiles it (repeats it) across the entire page. The Space Jam home page uses a small GIF of stars that tiles to fill the black background seamlessly.</p>
+<pre>&lt;body background="assets/bg_stars.gif"&gt;</pre>
+<div class="note"><strong>bgcolor and background together:</strong> Setting both is good practice. The <code>bgcolor</code> shows instantly while the image loads, preventing a white flash. The Space Jam page sets both to black/stars.</div>
+
+<h2>Images with img</h2>
+<p>You have seen <code>&lt;img&gt;</code> in earlier modules. Here you will use it to place the Space Jam logo on the page. The key attributes:</p>
+<ul>
+  <li><code>src</code> &mdash; path to the image file</li>
+  <li><code>width</code> and <code>height</code> &mdash; dimensions in pixels (always include these; they prevent layout jumping while images load)</li>
+  <li><code>alt</code> &mdash; text description shown if the image cannot load</li>
+  <li><code>border=0</code> &mdash; removes the blue border browsers add around images that are inside links</li>
+</ul>
+<pre>&lt;img src="assets/p-jamlogo.gif" height=165 width=272 alt="Space Jam" border=0&gt;</pre>
+
+<hr>
+<h2>Assets</h2>
+<p>The following files are in the <code>assets/</code> folder for this module:</p>
+<ul>
+  <li><code>bg_stars.gif</code> &mdash; small tileable star field (used as the page background)</li>
+  <li><code>p-jamlogo.gif</code> &mdash; the Space Jam logo</li>
+</ul>
+
+<hr>
+<h2>Steps</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Start from the Module 1 skeleton</h3>
+  <p>Create a new file called <code>index.html</code>. Paste in the skeleton from Module 1:</p>
+<pre>&lt;!-- Copyright 1996 Warner Bros. Online --&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Space Jam&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;Space Jam&lt;/h1&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Add the color scheme to body</h3>
+  <p>Replace the plain <code>&lt;body&gt;</code> tag with one that sets the background color, background image, text color, and link colors:</p>
+<pre>&lt;body bgcolor="#000000" background="assets/bg_stars.gif" text="#ff0000" link="#ff4c4c" vlink="#ff4c4c" alink="#ff4c4c"&gt;</pre>
+  <p>Save and refresh. The page should now be black with a tiled star field and the "Space Jam" heading in red.</p>
+</div>
+
+<div class="step">
+  <h3>Step 3 &mdash; Replace the heading with the logo image</h3>
+  <p>Remove the <code>&lt;h1&gt;</code> tag and replace it with a centered logo image:</p>
+<pre>&lt;center&gt;
+&lt;img src="assets/p-jamlogo.gif" height=165 width=272 alt="Space Jam" border=0&gt;
+&lt;/center&gt;</pre>
+  <p>Save and refresh. You should see the Space Jam logo centered on the star-field background.</p>
+</div>
+
+<div class="step">
+  <h3>Step 4 &mdash; Add the copyright footer</h3>
+  <p>Add the copyright notice at the bottom, inside <code>&lt;center&gt;</code> so it is centered, using <code>&lt;font&gt;</code> for sizing:</p>
+<pre>&lt;br&gt;
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;font size="-1"&gt;SPACE JAM, characters, names, and all related&lt;br&gt;
+indicia are trademarks of Warner Bros. &amp;copy; 1996&lt;/font&gt;&lt;br&gt;
+&lt;/center&gt;</pre>
+  <p>Save and refresh. Your page now has the full Space Jam look: black starfield, red text, centered logo, and a copyright footer.</p>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Your finished file should match <code>completed/index.html</code>. Compare your result to the original at <code>fullsite/index.html</code> &mdash; the completed version intentionally omits the navigation buttons and ad slots (those require tables in Module 6 and links in Module 4), but the visual identity is complete.</p>
+
+</body>
+</html>

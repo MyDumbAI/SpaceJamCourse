@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 4: Links</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+
+<h1>Module 4: Links</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Add working navigation links to the Bugs Bunny bio page, then create a second bio page for Daffy Duck and a simple Looney Tunes bios index. The three pages will link to each other, forming a mini navigable section.
+</div>
+
+<h2>The a Tag</h2>
+<p>Links are created with the <code>&lt;a&gt;</code> tag. The <code>href</code> attribute (short for hypertext reference) specifies where the link goes. Whatever sits between the opening and closing tag becomes the clickable content.</p>
+<pre>&lt;a href="daffy.html"&gt;Go to Daffy Duck&lt;/a&gt;</pre>
+<p>Links do not have to wrap text. They can wrap images too &mdash; clicking the image navigates to the URL.</p>
+<pre>&lt;a href="daffy.html"&gt;&lt;img src="assets/next.gif" border=0&gt;&lt;/a&gt;</pre>
+<div class="note">Always set <code>border=0</code> on images inside links. Without it, browsers draw a colored rectangle border around the image to indicate it is clickable, which almost always looks wrong.</div>
+
+<h2>Relative vs. Absolute Paths</h2>
+<p>A <strong>relative path</strong> is relative to the current file's location. If <code>bugs.html</code> and <code>daffy.html</code> are in the same folder, the link is simply:</p>
+<pre>&lt;a href="daffy.html"&gt;</pre>
+<p>An <strong>absolute path</strong> includes the full URL, starting with <code>https://</code>. Use this for linking to other websites:</p>
+<pre>&lt;a href="https://www.warnerbros.com/"&gt;Warner Bros.&lt;/a&gt;</pre>
+<p>To navigate up a folder level, use <code>../</code>. To navigate into a subfolder, include the folder name: <code>subfolder/page.html</code>.</p>
+
+<h2>The target Attribute</h2>
+<p>The <code>target</code> attribute controls where the linked page opens.</p>
+<ul>
+  <li><code>target="_blank"</code> &mdash; opens in a new browser tab or window</li>
+  <li><code>target="_top"</code> &mdash; breaks out of any frames and loads the page in the full browser window (used throughout the Space Jam site)</li>
+</ul>
+<pre>&lt;a href="https://www.warnerbros.com/" target="_blank"&gt;Warner Bros.&lt;/a&gt;</pre>
+
+<h2>Lists</h2>
+<p>The bios index page will use an unordered list to display character names. An unordered list is created with <code>&lt;ul&gt;</code>, and each item in it uses <code>&lt;li&gt;</code>.</p>
+<pre>&lt;ul&gt;
+  &lt;li&gt;&lt;a href="bugs.html"&gt;Bugs Bunny&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="daffy.html"&gt;Daffy Duck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<hr>
+<h2>Assets</h2>
+<p>The <code>assets/</code> folder contains everything from Module 2 plus two new files for the Daffy page:</p>
+<ul>
+  <li><code>ct-bugs.gif</code>, <code>c-bugs.jpg</code>, <code>bios.gif</code>, <code>next.gif</code> &mdash; from Module 2</li>
+  <li><code>ct-daffy.gif</code> &mdash; "Daffy Duck" title graphic</li>
+  <li><code>c-daffy.jpg</code> &mdash; Daffy Duck character photo</li>
+</ul>
+
+<hr>
+<h2>Steps</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Add links to bugs.html</h3>
+  <p>Start from your completed <code>bugs.html</code> from Module 2. Find the navigation footer at the bottom. The two image buttons currently have no link wrapper. Wrap each one in an <code>&lt;a&gt;</code> tag:</p>
+  <ul>
+    <li>The <code>bios.gif</code> image should link to <code>looneybios.html</code></li>
+    <li>The <code>next.gif</code> image should link to <code>daffy.html</code></li>
+  </ul>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Create daffy.html</h3>
+  <p>Create a new file called <code>daffy.html</code> in the same folder as <code>bugs.html</code>. Use the same skeleton and structure from Module 2 but with Daffy's content. The title, images, bio text, and footer all follow the same pattern &mdash; just with Daffy's assets and text.</p>
+  <p>In Daffy's footer, the <code>bios.gif</code> links back to <code>looneybios.html</code>, and the <code>next.gif</code> links forward to <code>porky.html</code> (which does not need to exist yet).</p>
+</div>
+
+<div class="step">
+  <h3>Step 3 &mdash; Create looneybios.html</h3>
+  <p>Create a simple index page called <code>looneybios.html</code>. It should have the title "The Lineup", a heading "Looney Tunes Bios", and an unordered list linking to each bio page. For now just link to <code>bugs.html</code> and <code>daffy.html</code>.</p>
+</div>
+
+<div class="step">
+  <h3>Step 4 &mdash; Test the links</h3>
+  <p>Open <code>looneybios.html</code> in your browser. Click Bugs Bunny &mdash; you should land on the bio. Click the Next button &mdash; you should arrive at Daffy's page. Click Bios &mdash; you should return to the index. All three pages are now linked together.</p>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Compare your pages to the <code>completed/</code> folder. You now have a working mini-site: three pages that navigate between each other. This is the same link structure the entire Space Jam Lineup section is built on.</p>
+
+</body>
+</html>

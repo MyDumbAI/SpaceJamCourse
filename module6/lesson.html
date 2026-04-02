@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 6: Tables</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+
+<h1>Module 6: Tables</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Recreate the Space Jam home page's orbital navigation layout &mdash; the eleven section buttons positioned around the central logo &mdash; using an HTML table.
+</div>
+
+<h2>How Tables Work</h2>
+<p>An HTML table is made of three nested tags:</p>
+<ul>
+  <li><code>&lt;table&gt;</code> &mdash; the outermost container</li>
+  <li><code>&lt;tr&gt;</code> &mdash; a table row (inside <code>&lt;table&gt;</code>)</li>
+  <li><code>&lt;td&gt;</code> &mdash; a table data cell (inside <code>&lt;tr&gt;</code>)</li>
+</ul>
+<p>Every cell sits at the intersection of a row and a column. Columns are implied by how many <code>&lt;td&gt;</code> elements you put in a row &mdash; there is no explicit column tag.</p>
+
+<h2>Table Attributes</h2>
+<p>These attributes appear on <code>&lt;table&gt;</code>:</p>
+<ul>
+  <li><code>border</code> &mdash; thickness of the visible border. Set to <code>0</code> to hide the grid lines (the Space Jam site uses border=0 for all layout tables).</li>
+  <li><code>cellpadding</code> &mdash; space in pixels between a cell's content and its edges.</li>
+  <li><code>cellspacing</code> &mdash; space in pixels between cells.</li>
+  <li><code>width</code> &mdash; total width of the table, in pixels or as a percentage.</li>
+</ul>
+
+<h2>Cell Attributes</h2>
+<p>These attributes appear on <code>&lt;td&gt;</code>:</p>
+<ul>
+  <li><code>align</code> &mdash; horizontal alignment of the cell's content: <code>left</code>, <code>center</code>, or <code>right</code>.</li>
+  <li><code>valign</code> &mdash; vertical alignment: <code>top</code>, <code>middle</code>, or <code>bottom</code>.</li>
+  <li><code>width</code> &mdash; width of the cell in pixels.</li>
+  <li><code>colspan</code> &mdash; makes a cell span across multiple columns.</li>
+  <li><code>rowspan</code> &mdash; makes a cell span across multiple rows.</li>
+</ul>
+
+<h2>Tables for Layout</h2>
+<p>In 1996, CSS layout did not exist in any practical sense. Tables were the only reliable way to position elements precisely on a page. The Space Jam home page uses a table with <code>width=500</code> and <code>border=0</code> to position its section buttons in the circular arrangement around the logo. The logo itself sits in a cell with <code>colspan=3</code> and <code>rowspan=2</code> so it occupies a large central area while the buttons surround it.</p>
+<div class="note">When using tables for layout, always set <code>border=0</code>, <code>cellpadding=0</code>, and <code>cellspacing=0</code> to start. Add spacing back only where you need it.</div>
+
+<hr>
+<h2>Assets</h2>
+<p>Same as Module 5 &mdash; all images are in the <code>assets/</code> folder.</p>
+
+<hr>
+<h2>Steps</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Start from the Module 5 home page</h3>
+  <p>Create a new <code>index.html</code> starting from your Module 5 completed file. The logo and copyright footer are already in place. You will replace the flat row of section buttons with a table layout.</p>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Remove the flat image row</h3>
+  <p>Delete the <code>&lt;center&gt;</code> block containing all eleven images. You will rebuild it as a table.</p>
+</div>
+
+<div class="step">
+  <h3>Step 3 &mdash; Build the navigation table</h3>
+  <p>Replace the deleted section with a centered table of <code>width=500</code> and <code>border=0</code>. The table has four rows arranged as follows:</p>
+  <ul>
+    <li><strong>Row 1:</strong> one cell spanning 5 columns, aligned right &mdash; empty (reserved for a banner that will be added later)</li>
+    <li><strong>Row 2:</strong> Press Box (2-col span, right-aligned) | Jam Central (center) | Planet B-Ball (center, top) | Lunar Tunes (center, bottom)</li>
+    <li><strong>Row 3:</strong> The Lineup (center, top) | the logo image spanning 3 cols &amp; 2 rows (right, middle) | Jump Station (right, bottom)</li>
+    <li><strong>Row 4 (continues row 3 logo span):</strong> Junior Jam (center, bottom) | Studio Store (center, top, 2-row span)</li>
+    <li><strong>Row 4:</strong> empty cell | Souvenirs (center, top) | Site Map (center, bottom) | Behind the Jam (center, middle)</li>
+  </ul>
+  <p>Refer to <code>completed/index.html</code> for the exact table structure with all colspan, rowspan, align, and valign values.</p>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Your finished file should match <code>completed/index.html</code>. The section buttons are now arranged orbitally around the logo, matching the real Space Jam home page layout. Compare it directly to <code>fullsite/index.html</code>.</p>
+
+</body>
+</html>

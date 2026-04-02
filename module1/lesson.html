@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Module 1: The Skeleton</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    h1 { border-bottom: 3px solid #000; padding-bottom: 8px; }
+    h2 { margin-top: 2em; }
+    pre { background: #f4f4f4; border-left: 4px solid #999; padding: 16px; overflow-x: auto; font-size: 14px; }
+    code { background: #f4f4f4; padding: 2px 5px; font-size: 14px; }
+    .goal { background: #fffbe6; border: 1px solid #e6c800; padding: 12px 16px; margin: 1.5em 0; }
+    .step { margin: 2em 0; }
+    .step h3 { margin-bottom: 6px; }
+    .note { background: #f0f7ff; border-left: 4px solid #4a90d9; padding: 10px 16px; margin: 1em 0; }
+  </style>
+</head>
+<body>
+
+<h1>Module 1: The Skeleton</h1>
+<p><em>Introduction to HTML &mdash; Rebuilding the Space Jam Website</em></p>
+
+<div class="goal">
+  <strong>Goal:</strong> Create the bare skeleton of the Space Jam home page &mdash; a valid HTML file with a title, visible in a browser, containing a single heading. No styling yet.
+</div>
+
+<h2>What is HTML?</h2>
+<p>HTML (HyperText Markup Language) is the language used to structure content on the web. An HTML file is a plain text file that a browser reads and renders as a page. Every web page you have ever visited &mdash; including the original 1996 Space Jam site &mdash; starts with this same basic structure.</p>
+<p>HTML uses <strong>tags</strong> to mark up content. Most tags come in pairs: an opening tag and a closing tag. The closing tag has a forward slash.</p>
+<pre>&lt;tagname&gt;content goes here&lt;/tagname&gt;</pre>
+
+<h2>The Four Required Tags</h2>
+<p>Every HTML page needs these four tags:</p>
+<ul>
+  <li><code>&lt;html&gt;</code> &mdash; Wraps the entire document. Tells the browser "this is HTML."</li>
+  <li><code>&lt;head&gt;</code> &mdash; Contains information <em>about</em> the page (not visible on screen).</li>
+  <li><code>&lt;title&gt;</code> &mdash; Sets the page title shown in the browser tab. Goes inside <code>&lt;head&gt;</code>.</li>
+  <li><code>&lt;body&gt;</code> &mdash; Contains everything <em>visible</em> on the page.</li>
+</ul>
+
+<h2>HTML Comments</h2>
+<p>Comments let you leave notes in your code. The browser ignores them completely. The original Space Jam source begins with a copyright comment.</p>
+<pre>&lt;!-- This is a comment. The browser ignores it. --&gt;</pre>
+
+<h2>Headings</h2>
+<p>HTML has six heading levels, from <code>&lt;h1&gt;</code> (largest) to <code>&lt;h6&gt;</code> (smallest). Use headings to mark titles and section names. Your page needs at least one heading so there is something visible to see.</p>
+<pre>&lt;h1&gt;Space Jam&lt;/h1&gt;</pre>
+
+<hr>
+<h2>Steps</h2>
+
+<div class="step">
+  <h3>Step 1 &mdash; Create the file</h3>
+  <p>Open a plain text editor (Notepad on Windows, TextEdit on Mac &mdash; make sure it is in plain text mode, not rich text). Create a new file and save it as <code>index.html</code>.</p>
+  <div class="note">The <code>.html</code> extension tells the browser and your operating system that this is a web page.</div>
+</div>
+
+<div class="step">
+  <h3>Step 2 &mdash; Add the document structure</h3>
+  <p>Copy and paste the following into your file:</p>
+<pre>&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Space Jam&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+  <p>Save the file, then open it in your browser. You should see a blank page with <strong>Space Jam</strong> in the browser tab.</p>
+</div>
+
+<div class="step">
+  <h3>Step 3 &mdash; Add a copyright comment</h3>
+  <p>Comments are invisible to the user but useful for notes and credits. The real Space Jam page opens with one. Add it as the very first line, before <code>&lt;html&gt;</code>:</p>
+<pre>&lt;!-- Copyright 1996 Warner Bros. Online --&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Space Jam&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+</div>
+
+<div class="step">
+  <h3>Step 4 &mdash; Add a visible heading</h3>
+  <p>Put a heading inside <code>&lt;body&gt;</code> so the page has something to show:</p>
+<pre>&lt;!-- Copyright 1996 Warner Bros. Online --&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;title&gt;Space Jam&lt;/title&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;Space Jam&lt;/h1&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</pre>
+  <p>Save and refresh. You should now see "Space Jam" as a large heading on a white page. This is your skeleton.</p>
+</div>
+
+<hr>
+<h2>What You Built</h2>
+<p>Your finished file should match <code>completed/index.html</code>. It is minimal on purpose &mdash; future modules will layer on colors, images, links, and layout. Every page in the Space Jam site, no matter how complex, is built on exactly this same skeleton.</p>
+
+</body>
+</html>
